@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdelaziz Omran</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80'); /* صورة خلفية تعبر عن المحاسبة */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #ffffff; /* لون النص أبيض */
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .main-section {
+            margin-top: 50px;
+            background-color: rgba(18, 18, 18, 0.8); /* خلفية شبه شفافة لقسم النشر */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-section h1 {
+            font-size: 2rem; /* تصغير حجم الخط */
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ffffff; /* لون النص أبيض */
+        }
+
+        .post-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.9); /* خلفية شبه شفافة */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .post-section textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background-color: rgba(51, 51, 51, 0.8); /* خلفية شبه شفافة */
+            color: #ffffff; /* لون النص أبيض */
+            font-size: 0.9rem; /* تصغير حجم الخط */
+            direction: rtl; /* النص العربي من اليمين لليسار */
+        }
+
+        .post-section input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background-color: rgba(51, 51, 51, 0.8); /* خلفية شبه شفافة */
+            color: #ffffff; /* لون النص أبيض */
+            font-size: 1rem;
+            direction: rtl; /* النص العربي من اليمين لليسار */
+        }
+
+        .post-section button {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: #28a745; /* لون الزر أخضر */
+            border: none;
+            color: #ffffff; /* لون النص أبيض */
+            transition: background-color 0.3s ease;
+        }
+
+        .post-section button:hover {
+            background-color: #218838; /* لون الزر عند التمرير */
+        }
+
+        .posts {
+            margin-top: 30px;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post {
+            background-color: rgba(26, 26, 26, 0.9); /* خلفية شبه شفافة */
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .post-actions {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .post-actions button {
+            margin-right: 5px;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            color: #ffffff; /* لون النص أبيض */
+            transition: opacity 0.3s ease;
+        }
+
+        .post-actions button:hover {
+            opacity: 0.8; /* تغيير الشفافية عند التمرير */
+        }
+
+        .post p {
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ffffff; /* لون النص أبيض */
+            direction: auto; /* تحديد الاتجاه تلقائيًا بناءً على اللغة */
+            unicode-bidi: plaintext; /* دعم اللغات المختلطة */
+        }
+
+        /* تحسين الأزرار */
+        .btn-warning {
+            background-color: #ffc107; /* لون زر التعديل */
+            border: none;
+        }
+
+        .btn-danger {
+            background-color: #dc3545; /* لون زر الحذف */
+            border: none;
+        }
+
+        /* تحسين الظلال */
+        .shadow {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* لون زر العودة إلى الصفحة الرئيسية */
+        .btn-secondary-custom {
+            background-color: #6c757d; /* لون رمادي */
+            border: none;
+            color: #ffffff; /* لون النص أبيض */
+        }
+
+        .btn-secondary-custom:hover {
+            background-color: #5a6268; /* لون رمادي غامق عند التمرير */
+        }
+
+        /* مربع الجملة في أعلى الموقع */
+        .title-box {
+            background-color: rgba(26, 26, 26, 0.9); /* خلفية شبه شفافة */
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .title-box p {
+            font-size: 1.2rem; /* تصغير حجم الخط */
+            color: #ffffff; /* لون النص أبيض */
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- مربع الجملة في أعلى الموقع -->
+    <div class="title-box shadow">
+        <p>محاسب قانوني | Abdelaziz Omran</p>
+    </div>
+
+    <!-- Main Section -->
+    <section class="main-section">
+        <div class="container">
+            <h1 class="text-center">Egyptian Accountants</h1>
+
+            <!-- قسم النشر -->
+            <div class="post-section shadow">
+                <textarea id="postContent" placeholder="اكتب منشورك هنا..."></textarea>
+                <input type="password" id="adminPassword" placeholder="كلمة المرور">
+                <button onclick="publishPost()" class="btn btn-primary">نشر</button>
+                <!-- زر العودة إلى الصفحة الرئيسية -->
+                <button onclick="redirectToHome()" class="btn btn-secondary-custom mt-3">العودة إلى الصفحة الرئيسية</button>
+            </div>
+
+            <!-- المنشورات -->
+            <div class="posts" id="postsContainer">
+                <!-- المنشورات ستظهر هنا -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // كلمة المرور للإدارة (تم تعيينها إلى الكلمة التي أرسلتها)
+        const ADMIN_PASSWORD = "e0l3md@J6eUa7@L012";
+
+        // دالة لتحميل الرسالة عند فتح الصفحة
+        function loadPost() {
+            const savedPost = localStorage.getItem('savedPost');
+            if (savedPost) {
+                const postElement = document.createElement('div');
+                postElement.className = 'post shadow';
+                postElement.innerHTML = `
+                    <div class="post-actions">
+                        <button onclick="editPost(this)" class="btn btn-warning btn-sm">تعديل</button>
+                        <button onclick="deletePost(this)" class="btn btn-danger btn-sm">حذف</button>
+                    </div>
+                    <p>${savedPost}</p>
+                `;
+                document.getElementById('postsContainer').appendChild(postElement);
+            }
+        }
+
+        // دالة لنشر المنشور
+        function publishPost() {
+            const postContent = document.getElementById('postContent').value;
+            const password = document.getElementById('adminPassword').value;
+
+            if (password !== ADMIN_PASSWORD) {
+                alert("كلمة المرور غير صحيحة. فقط المدير يمكنه النشر.");
+                return;
+            }
+
+            if (postContent.trim() === "") {
+                alert("الرجاء كتابة منشور قبل النشر.");
+                return;
+            }
+
+            // حفظ الرسالة في localStorage
+            localStorage.setItem('savedPost', postContent);
+
+            // إعادة تحميل الصفحة لعرض الرسالة
+            location.reload();
+        }
+
+        // دالة لحذف المنشور
+        function deletePost(button) {
+            const password = prompt("أدخل كلمة المرور لحذف المنشور:");
+            if (password === ADMIN_PASSWORD) {
+                localStorage.removeItem('savedPost');
+                location.reload();
+            } else {
+                alert("كلمة المرور غير صحيحة. لا يمكن حذف المنشور.");
+            }
+        }
+
+        // دالة لتعديل المنشور
+        function editPost(button) {
+            const password = prompt("أدخل كلمة المرور لتعديل المنشور:");
+            if (password === ADMIN_PASSWORD) {
+                const post = button.closest('.post');
+                const postContent = post.querySelector('p').innerText;
+                document.getElementById('postContent').value = postContent;
+                localStorage.removeItem('savedPost');
+            } else {
+                alert("كلمة المرور غير صحيحة. لا يمكن تعديل المنشور.");
+            }
+        }
+
+        // دالة للعودة إلى الصفحة الرئيسية
+        function redirectToHome() {
+            window.location.href = "https://accountants-1-three.vercel.app/";
+        }
+
+        // تحميل الرسالة عند فتح الصفحة
+        loadPost();
+    </script>
+</body>
+</html>
